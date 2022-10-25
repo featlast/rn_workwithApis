@@ -1,26 +1,21 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import NewsLists from './src/components/NewsLists';
+
+import NewsScreens from './src/Screens/NewsScreens';
+import RequestScreen from './src/Screens/RequestScreen';
+import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+
+const Tab = createBottomTabNavigator();
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.texto}>Welcome APP</Text>
-      <NewsLists />
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="News" component={NewsScreens} />
+        <Tab.Screen name="Request" component={RequestScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 };
 
 export default App;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  texto: {
-    fontWeight: 'bold',
-    fontSize: 40,
-  },
-});
