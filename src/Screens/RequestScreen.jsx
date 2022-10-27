@@ -88,10 +88,10 @@ const deleteRequest = async () => {
       <Text>postResponse: {JSON.stringify(postResponse)}</Text>
       <Button title='POST' onPress={postRequest}/>
       {/*PUT REQUEST */}
-      <Text>postResponse: {JSON.stringify(putResponse)}</Text>
+      <Text>putResponse: {JSON.stringify(putResponse)}</Text>
       <Button title='PUT' onPress={putRequest}/>
       {/*PUT REQUEST */}
-      <Text>postResponse: {JSON.stringify(deleteResponse)}</Text>
+      <Text>deleteResponse: {JSON.stringify(deleteResponse)}</Text>
       <Button title='DELETE' onPress={deleteRequest}/>
     </View>
   );

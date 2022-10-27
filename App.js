@@ -7,6 +7,8 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faReact} from '@fortawesome/free-brands-svg-icons/faReact';
 import {faUbuntu} from '@fortawesome/free-brands-svg-icons';
+import {faAddressCard} from '@fortawesome/free-solid-svg-icons';
+import ProfileScreen from './src/Screens/ProfileScreen';
 const Tab = createBottomTabNavigator();
 
 const myConfigTabScrenNews = {
@@ -17,6 +19,11 @@ const myConfigTabScrenNews = {
 const myConfigTabScrenRequest = {
   tabBarIcon: ({color, size}) => (
     <FontAwesomeIcon icon={faUbuntu} size={size} color={color} />
+  ),
+};
+const myConfigTabScreenProfile = {
+  tabBarIcon: ({color, size}) => (
+    <FontAwesomeIcon icon={faAddressCard} size={size} color={color} />
   ),
 };
 
@@ -32,14 +39,19 @@ const App = () => {
     <NavigationContainer>
       <Tab.Navigator initialRouteName="News" screenOptions={screenOptions}>
         <Tab.Screen
+          name="Request"
+          component={RequestScreen}
+          options={myConfigTabScrenRequest}
+        />
+        <Tab.Screen
           name="News"
           component={NewsScreens}
           options={myConfigTabScrenNews}
         />
         <Tab.Screen
-          name="Request"
-          component={RequestScreen}
-          options={myConfigTabScrenRequest}
+          name="Profile"
+          component={ProfileScreen}
+          options={myConfigTabScreenProfile}
         />
       </Tab.Navigator>
     </NavigationContainer>
